@@ -1,0 +1,32 @@
+{
+  "name": "yad2-searcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "search": "mocha src/test/functions/searchFunctionTest.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yedidya Schwartz",
+  "license": "ISC",
+  "devDependencies": {
+    "aws-sdk-mock": "^4.4.0",
+    "dirty-chai": "^2.0.1",
+    "generator-serverless-policy": "^2.0.0",
+    "serverless": "2.17.0",
+    "serverless-iam-roles-per-function": "^1.0.4",
+    "serverless-mocha": "^1.12.0",
+    "serverless-pseudo-parameters": "^2.4.0",
+    "serverless-tag-api-gateway": "^1.0.0",
+    "standard": "^11.0.1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.462.0",
+    "axios": "^0.20.0",
+    "fs": "0.0.2",
+    "mongoose": "^5.10.7",
+    "nyc": "^15.1.0",
+    "serverless-mocha-plugin": "^1.12.0",
+    "validator": "^13.1.17"
+  }
+}
