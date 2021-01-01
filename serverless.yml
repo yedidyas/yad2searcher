@@ -33,6 +33,10 @@ provider:
       Action:
         - "s3:*"
       Resource: "*"
+    - Effect: "Allow"
+      Action:
+        - "secretsmanager:GetSecretValue"
+      Resource: "*"
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -69,7 +73,8 @@ provider:
 functions:
   search:
     handler: src/functions/search.search
-
+    events:
+      - schedule: rate(10 minutes)
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

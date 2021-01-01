@@ -21,8 +21,7 @@ const search = async (city, neighborhood, name, filesDir) => {
         resolve(filteredResults);
 
         } catch (ex) {
-        console.log(`Search ${name} failed`);
-
+            console.log(`Search ${name} failed with error: ${ex}`);
             reject(ex);
         }
     });

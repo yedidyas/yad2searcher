@@ -25,7 +25,7 @@ module.exports.search = async (event, context, callback) => {
 
   const deltaBetweenOldToCurrentResults = currentResults
     .filter(x => !oldResults.includes(x));
-
+  
   if (deltaBetweenOldToCurrentResults.length > 0) {
     await emailSender.send(deltaBetweenOldToCurrentResults.toString());
   } else {
