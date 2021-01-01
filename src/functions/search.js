@@ -1,6 +1,7 @@
 const yad2Caller = require('../services/yad2Caller');
 const data = require('../data');
 const filesManager = require('../services/filesManager');
+const emailSender = require('../services/emailSender');
 
 // To open an item: 
 // https://www.yad2.co.il/item/5apktgfn
@@ -24,6 +25,12 @@ module.exports.search = async (event, context, callback) => {
 
   const deltaBetweenOldToCurrentResults = currentResults
     .filter(x => !oldResults.includes(x));
+
+  if (deltaBetweenOldToCurrentResults.length > 0) {
+    await emailSender.send(deltaBetweenOldToCurrentResults.toString());
+  } else {
+    console.log('I didn\'t find anything new');
+  }
 
   await filesManager.write(oldResults, 'oldResults.txt');
   await filesManager.write(currentResults, 'currentResults.txt');
