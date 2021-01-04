@@ -3,9 +3,6 @@ const data = require('../data');
 const filesManager = require('../services/filesManager');
 const emailSender = require('../services/emailSender');
 
-// To open an item: 
-// https://www.yad2.co.il/item/5apktgfn
-
 module.exports.search = async (event, context, callback) => {
   const promises = [];
 
@@ -27,7 +24,7 @@ module.exports.search = async (event, context, callback) => {
     .filter(x => !oldResults.includes(x));
   
   if (deltaBetweenOldToCurrentResults.length > 0) {
-    await emailSender.send(deltaBetweenOldToCurrentResults.toString());
+    await emailSender.send(convertIdsToLinks(deltaBetweenOldToCurrentResults).join(', '));
   } else {
     console.log('I didn\'t find anything new');
   }
@@ -41,3 +38,7 @@ module.exports.search = async (event, context, callback) => {
           body: deltaBetweenOldToCurrentResults
         });  
 };
+
+function convertIdsToLinks(ids) {
+  return ids.map(id => 'https://www.yad2.co.il/item/' + id);
+}
