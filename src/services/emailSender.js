@@ -10,13 +10,12 @@ async function send(content) {
         const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
         const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
-        sendSmtpEmail.to = [{ "email":"didi566@gmail.com", "name":"Yedidya Schwartz"}];
+        sendSmtpEmail.to = [{ "email":"didi566@gmail.com", "name":"Yedidya"}, { "email":"shirday8@gmail.com", "name":"Shir"}];
         sendSmtpEmail.sender = { "email":"yad2Searcher@domain.com", "name":"yad2Searcher"};
         sendSmtpEmail.htmlContent = content;
-        sendSmtpEmail.subject = "YAD2SEARCHER ALERT - new ids";
+        sendSmtpEmail.subject = "Yad2 Search - new apartments ALERT";
         sendSmtpEmail.headers = {"x-mailin-custom":"myV3Custom" };
         sendSmtpEmail.tags = ["yad2Searcher","newApartments"];
-        // sendSmtpEmail.attachment =  [{"url": "https://example.com/ValidimageUrl1.jpg"},{"url": "https://example.com/ValidimageUrl2.jpg"}]
         
         const data = await apiInstance.sendTransacEmail(sendSmtpEmail);
         console.log(`Email was sent successfully. Returned data: ${data}`);
