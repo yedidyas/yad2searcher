@@ -28,9 +28,8 @@ module.exports.search = async (event, context, callback) => {
   } else {
     console.log('I didn\'t find anything new');
   }
-
-  await filesManager.write(oldResults, 'oldResults.txt');
-  await filesManager.write(currentResults, 'currentResults.txt');
+  
+  await filesManager.write([...new Set([...currentResults ,...oldResults])], 'currentResults.txt');
   await filesManager.write(deltaBetweenOldToCurrentResults, 'deltaBetweenOldToCurrentResults.txt');
 
   callback(null, {
