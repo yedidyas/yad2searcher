@@ -1,5 +1,5 @@
 const yad2Caller = require('../services/yad2Caller');
-const data = require('../data');
+const data = require('../data_avidan');
 const filesManager = require('../services/filesManager');
 const emailSender = require('../services/emailSender');
 

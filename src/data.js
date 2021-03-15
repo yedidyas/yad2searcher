@@ -59,5 +59,15 @@ module.exports.searchData = [
         city: '8400',
         neighborhood: '1234'
     },
+    {
+        name: 'פתח תקווה הדר המושבות הוותיקה',
+        city: '7900',
+        neighborhood: '749'
+    },
+	{
+		name: 'פתח תקווה הדר המושבות החדשה',
+        city: '7900',
+        neighborhood: '750'
+    },
 ];
 
