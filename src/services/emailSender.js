@@ -10,7 +10,7 @@ async function send(content) {
         const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
         const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
-        sendSmtpEmail.to = [{ "email":"didi566@gmail.com", "name":"Yedidya"}, { "email":"lilachrom3@gmail.com", "name":"Lilach"}];
+        sendSmtpEmail.to = [{ "email":"didi566@gmail.com", "name":"Yedidya"}, /* { "email":"lilachrom3@gmail.com", "name":"Lilach"}*/ ];
         sendSmtpEmail.sender = { "email":"yad2Searcher@domain.com", "name":"yad2Searcher"};
         sendSmtpEmail.htmlContent = content;
         sendSmtpEmail.subject = "Yad2 Search - new apartments ALERT";
